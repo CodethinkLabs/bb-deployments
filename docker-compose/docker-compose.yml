@@ -17,8 +17,6 @@ services:
     - -allow-ac-updates-for-instance=bb-event-service
     - -allow-ac-updates-for-instance=debian8
     - -allow-ac-updates-for-instance=ubuntu16-04
-    expose:
-    - 8980
     ports:
     - 7982:80
     volumes:
@@ -31,8 +29,6 @@ services:
     - -allow-ac-updates-for-instance=bb-event-service
     - -allow-ac-updates-for-instance=debian8
     - -allow-ac-updates-for-instance=ubuntu16-04
-    expose:
-    - 8980
     ports:
     - 17982:80
     volumes:
@@ -56,8 +52,6 @@ services:
 
   scheduler-debian8:
     image: buildbarn/bb-scheduler:20190210T161704Z-6f6bded
-    expose:
-    - 8981
     ports:
     - 7981:80
   worker-debian8:
@@ -79,8 +73,6 @@ services:
 
   scheduler-ubuntu16-04:
     image: buildbarn/bb-scheduler:20190210T161704Z-6f6bded
-    expose:
-    - 8981
     ports:
     - 17981:80
   worker-ubuntu16-04:
