@@ -1,10 +1,12 @@
 version: '3'
 services:
   frontend:
-    image: buildbarn/bb-storage:20190211T175559Z-ee2cb65
+    image: remoteapistesting/bb-storage:ssl
     command:
     - -scheduler=debian8|scheduler-debian8:8981
     - -scheduler=ubuntu16-04|scheduler-ubuntu16-04:8981
+    - -tls-cert-file=/config/server.crt
+    - -tls-key-file=/config/server.key
     ports:
     - 7980:80
     - 8980:8980
@@ -87,7 +89,7 @@ services:
     - ./config-storage-clients:/config
     - ./worker-ubuntu16-04:/worker
   runner-ubuntu16-04:
-    image: buildbarn/bb-runner-ubuntu16-04:20190210T161704Z-6f6bded
+    image: bazel/cmd/bb_runner:bb_runner_ubuntu16_04_container
     network_mode: none
     volumes:
     - ./worker-ubuntu16-04:/worker
